@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AURA - Contemporary Art Portfolio & Digital Gallery displaying original paintings, 3D renders, digital fine art, and surreal visual stories.">
+  <title>AURA — Fine Art Portfolio & Digital Gallery</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Background Glowing Orbs -->
+  <div class="glow-orb orb-1"></div>
+  <div class="glow-orb orb-2"></div>
+  <div class="glow-orb orb-3"></div>
+
+  <!-- Header / Navigation Bar -->
+  <header class="navbar" id="top">
+    <div class="nav-container">
+      <a href="#" class="brand-logo">
+        <span class="brand-symbol">◈</span>
+        <span class="brand-name">AURA<span class="brand-sub">GALLERY</span></span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#gallery" class="nav-link active">Gallery</a>
+        <a href="#wall-previewer" class="nav-link">Wall Simulator</a>
+        <a href="#artist" class="nav-link">Artist Bio</a>
+        <a href="#contact" class="nav-link">Inquire & Collect</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Live Search Bar -->
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" id="search-input" placeholder="Search artwork, medium..." aria-label="Search artwork">
+          <button id="search-clear" class="search-clear hidden" aria-label="Clear search"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <!-- Favorites Button -->
+        <button id="fav-btn" class="nav-action-btn" title="View Saved Favorites">
+          <i class="fa-solid fa-heart"></i>
+          <span id="fav-badge" class="badge">0</span>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="nav-action-btn" title="Toggle Theme Mode">
+          <i class="fa-solid fa-moon moon-icon"></i>
+          <i class="fa-solid fa-sun sun-icon"></i>
+        </button>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="mobile-toggle" aria-label="Toggle navigation menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main>
+    <!-- Hero Spotlight Section -->
+    <section class="hero-section">
+      <div class="hero-container">
+        <div class="hero-content">
+          <div class="hero-tag"><span class="pulse-dot"></span> Featured Masterpiece • 2026 Collection</div>
+          <h1 class="hero-title">Where Vision Transcends <span class="gradient-text">Canvas & Light</span></h1>
+          <p class="hero-description">
+            Explore an immersive collection of contemporary digital fine art, oil impasto, glowing surrealism, and crystalline 3D forms. Designed for collectors and art enthusiasts.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#gallery" class="btn btn-primary">
+              <i class="fa-solid fa-compass"></i> Explore Gallery
+            </a>
+            <a href="#wall-previewer" class="btn btn-glass">
+              <i class="fa-solid fa-couch"></i> Wall Simulator
+            </a>
+          </div>
+
+          <!-- Quick Stats Counter -->
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-number">06</span>
+              <span class="stat-label">Featured Artworks</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number">12+</span>
+              <span class="stat-label">Exhibitions</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Authenticity Verified</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-spotlight-card" id="hero-spotlight" title="Click to view artwork details">
+          <div class="spotlight-badge">Spotlight</div>
+          <img src="assets/images/cyberpunk_nebula.jpg" alt="Cyberpunk Nebula Artwork" class="spotlight-img">
+          <div class="spotlight-overlay">
+            <div class="spotlight-meta">
+              <span class="spotlight-medium">Digital Fine Art</span>
+              <h2 class="spotlight-title">Cyberpunk Nebula</h2>
+              <p class="spotlight-artist">By Ruinuo • 2026 Edition</p>
+            </div>
+            <button class="spotlight-action-btn" aria-label="View Cyberpunk Nebula"><i class="fa-solid fa-expand"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Controls & Grid Section -->
+    <section class="gallery-section" id="gallery">
+      <div class="section-container">
+        <!-- Section Header -->
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">The Art Gallery</h2>
+            <p class="section-subtitle">Browse curated works across digital, oil canvas, and surrealist mediums.</p>
+          </div>
+          
+          <!-- View Controls (Grid vs Masonry vs Cards) -->
+          <div class="layout-switchers">
+            <button class="layout-btn active" data-layout="grid" title="Standard Grid View">
+              <i class="fa-solid fa-border-all"></i>
+            </button>
+            <button class="layout-btn" data-layout="masonry" title="Dynamic Masonry View">
+              <i class="fa-solid fa-table-cells-large"></i>
+            </button>
+            <button class="layout-btn" data-layout="list" title="Detailed List View">
+              <i class="fa-solid fa-list"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter & Sort Toolbar -->
+        <div class="toolbar">
+          <!-- Filter Tabs -->
+          <div class="filter-tabs">
+            <button class="filter-btn active" data-category="all">All Works</button>
+            <button class="filter-btn" data-category="digital">Digital Art</button>
+            <button class="filter-btn" data-category="oil">Oil & Canvas</button>
+            <button class="filter-btn" data-category="surreal">Surrealism</button>
+            <button class="filter-btn" data-category="concept">3D & Concept</button>
+            <button class="filter-btn" data-category="photography">Photography</button>
+          </div>
+
+          <!-- Sort Selector -->
+          <div class="sort-wrapper">
+            <label for="sort-select" class="sort-label"><i class="fa-solid fa-arrow-down-short-wide"></i> Sort:</label>
+            <select id="sort-select" class="sort-select">
+              <option value="featured">Featured Order</option>
+              <option value="popular">Most Liked</option>
+              <option value="newest">Newest First</option>
+              <option value="title">Alphabetical (A-Z)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Favorites Filter Indicator Banner -->
+        <div id="favorites-only-banner" class="banner-notification hidden">
+          <span><i class="fa-solid fa-heart text-danger"></i> Showing your saved favorite artworks</span>
+          <button id="clear-favorites-filter" class="btn-text">Show All Works</button>
+        </div>
+
+        <!-- Artwork Grid Container -->
+        <div class="artwork-grid grid-layout" id="artwork-grid">
+          <!-- Populated by JavaScript app.js -->
+        </div>
+
+        <!-- Empty State Message -->
+        <div id="empty-state" class="empty-state hidden">
+          <i class="fa-solid fa-palette empty-icon"></i>
+          <h3>No artworks match your search</h3>
+          <p>Try clearing filters or searching for another keyword.</p>
+          <button id="reset-search-btn" class="btn btn-secondary">Reset Filters</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wall Previewer / Virtual Room Simulator Section -->
+    <section class="room-simulator-section" id="wall-previewer">
+      <div class="section-container">
+        <div class="section-header text-center">
+          <h2 class="section-title">Virtual Wall Simulator</h2>
+          <p class="section-subtitle">Visualize how your favorite artwork looks hung inside different interior spaces.</p>
+        </div>
+
+        <div class="simulator-card">
+          <div class="simulator-controls">
+            <!-- Room Selector -->
+            <div class="control-group">
+              <label class="control-label"><i class="fa-solid fa-house-chimney"></i> Interior Space:</label>
+              <div class="room-options">
+                <button class="room-option-btn active" data-room="modern-living">Modern Living Room</button>
+                <button class="room-option-btn" data-room="gallery-dark">Dark Gallery Wall</button>
+                <button class="room-option-btn" data-room="minimal-studio">Minimalist Studio</button>
+                <button class="room-option-btn" data-room="executive-office">Cozy Office</button>
+              </div>
+            </div>
+
+            <!-- Artwork Selection Selector -->
+            <div class="control-group">
+              <label for="wall-art-select" class="control-label"><i class="fa-solid fa-image"></i> Select Artwork:</label>
+              <select id="wall-art-select" class="custom-select">
+                <!-- Populated dynamically via JS -->
+              </select>
+            </div>
+
+            <!-- Scale Slider -->
+            <div class="control-group">
+              <label for="wall-scale-slider" class="control-label">
+                <i class="fa-solid fa-up-right-and-down-left-from-center"></i> Artwork Scale: <span id="scale-value-label">Medium (100%)</span>
+              </label>
+              <input type="range" id="wall-scale-slider" min="60" max="150" value="100" class="custom-range">
+            </div>
+          </div>
+
+          <!-- Virtual Room Canvas Display -->
+          <div class="room-canvas modern-living" id="room-canvas">
+            <div class="room-lighting-overlay"></div>
+            <!-- Wall Frame -->
+            <div class="wall-frame-wrapper" id="wall-frame-wrapper" style="transform: scale(1.0);">
+              <div class="wall-frame shadow-large" id="wall-frame">
+                <img src="assets/images/cyberpunk_nebula.jpg" alt="Artwork Wall Preview" id="wall-preview-img" class="wall-artwork-img">
+              </div>
+              <div class="frame-label" id="wall-art-label">Cyberpunk Nebula • 48" x 36"</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Artist Bio & Exhibition Timeline -->
+    <section class="artist-section" id="artist">
+      <div class="section-container">
+        <div class="artist-grid">
+          <div class="artist-bio-card">
+            <div class="artist-avatar-wrapper">
+              <div class="artist-avatar">
+                <i class="fa-solid fa-user-astronaut avatar-icon"></i>
+              </div>
+              <div class="artist-status-tag"><span class="status-dot"></span> Available for Commissions</div>
+            </div>
+
+            <h2 class="artist-name">Ruinuo <span class="artist-title">Contemporary Visual Artist</span></h2>
+            <p class="artist-quote">
+              "Art is the quiet bridge between raw human sensation and the infinite expanse of digital mythology."
+            </p>
+            <p class="artist-description">
+              Specializing in digital fine art, multi-layered oil impasto techniques, and luminescent surrealist compositions. Based in the intersection of traditional aesthetic theory and cutting-edge visual craft.
+            </p>
+
+            <div class="artist-badges">
+              <span class="badge-pill"><i class="fa-solid fa-award"></i> Biennale Selection 2026</span>
+              <span class="badge-pill"><i class="fa-solid fa-certificate"></i> Verified Authenticity</span>
+              <span class="badge-pill"><i class="fa-solid fa-globe"></i> International Collections</span>
+            </div>
+
+            <div class="artist-cta">
+              <a href="#contact" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Request Commission</a>
+            </div>
+          </div>
+
+          <!-- Exhibition Timeline -->
+          <div class="exhibition-timeline-card">
+            <h3 class="timeline-title"><i class="fa-solid fa-landmark"></i> Key Exhibitions & Shows</h3>
+            
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2026 • Paris</div>
+                <div class="timeline-content">
+                  <h4>Lumina Digital Fine Art Expo</h4>
+                  <p>Grand Palais Ephémère — Featured 3 digital oil masterpieces.</p>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2025 • Tokyo</div>
+                <div class="timeline-content">
+                  <h4>Neo-Surrealism & Cybernetic Light</h4>
+                  <p>Mori Art Museum — Solo installation showcasing "Surreal Flora" series.</p>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2024 • New York</div>
+                <div class="timeline-content">
+                  <h4>The Modern Impasto Gallery</h4>
+                  <p>Chelsea Art District — Group exhibition of gold leaf oil compositions.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Inquire & Contact Section -->
+    <section class="contact-section" id="contact">
+      <div class="section-container">
+        <div class="contact-card">
+          <div class="contact-info">
+            <h2 class="contact-title">Acquire or Commission</h2>
+            <p class="contact-subtitle">
+              Interested in acquiring an original painting, a signed limited edition print, or commissioning a custom digital artwork? Get in touch directly with the artist studio.
+            </p>
+            
+            <div class="contact-details">
+              <div class="contact-detail-item">
+                <i class="fa-solid fa-envelope detail-icon"></i>
+                <div>
+                  <strong>Studio Email</strong>
+                  <span>collector@ruinuo-art.com</span>
+                </div>
+              </div>
+
+              <div class="contact-detail-item">
+                <i class="fa-solid fa-location-dot detail-icon"></i>
+                <div>
+                  <strong>Gallery Location</strong>
+                  <span>Metropolitan Art District, Studio 402</span>
+                </div>
+              </div>
+
+              <div class="contact-detail-item">
+                <i class="fa-solid fa-shield-halved detail-icon"></i>
+                <div>
+                  <strong>Collector Guarantee</strong>
+                  <span>Includes Signed Physical/Digital Certificate of Authenticity</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Inquiry Form -->
+          <form id="inquiry-form" class="inquiry-form">
+            <h3>Send Collector Inquiry</h3>
+            
+            <div class="form-group">
+              <label for="form-name">Your Full Name *</label>
+              <input type="text" id="form-name" required placeholder="e.g. Elena Rostova">
+            </div>
+
+            <div class="form-group">
+              <label for="form-email">Email Address *</label>
+              <input type="email" id="form-email" required placeholder="e.g. elena@artcollector.com">
+            </div>
+
+            <div class="form-group">
+              <label for="form-interest">Inquiry Type</label>
+              <select id="form-interest" class="form-select">
+                <option value="original">Acquire Original Work</option>
+                <option value="print">Limited Edition Signed Print</option>
+                <option value="commission">Custom Artwork Commission</option>
+                <option value="general">General Exhibition Question</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="form-artwork-select">Artwork of Interest</label>
+              <select id="form-artwork-select" class="form-select">
+                <!-- Populated dynamically via JS -->
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="form-message">Message *</label>
+              <textarea id="form-message" rows="4" required placeholder="Describe your inquiry, dimensions required, or space details..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">
+              <i class="fa-solid fa-paper-plane"></i> Submit Inquiry
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="#" class="brand-logo">
+          <span class="brand-symbol">◈</span>
+          <span class="brand-name">AURA GALLERY</span>
+        </a>
+        <p>Contemporary digital fine art portfolio & interactive collector experience.</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#wall-previewer">Wall Simulator</a></li>
+          <li><a href="#artist">About Artist</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-social">
+        <h4>Connect & Follow</h4>
+        <div class="social-icons">
+          <a href="#" aria-label="Instagram" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Behance" class="social-btn"><i class="fa-brands fa-behance"></i></a>
+          <a href="#" aria-label="ArtStation" class="social-btn"><i class="fa-brands fa-artstation"></i></a>
+          <a href="#" aria-label="X / Twitter" class="social-btn"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>© 2026 Ruinuo Art Portfolio. All rights reserved. • Powered by AURA Engine</p>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal Drawer -->
+  <div id="lightbox-modal" class="lightbox-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+    <div class="lightbox-container">
+      <!-- Close Button -->
+      <button id="lightbox-close" class="lightbox-close-btn" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+      
+      <!-- Split Modal Layout -->
+      <div class="lightbox-body">
+        <!-- Image Preview & Zoom Tool Area -->
+        <div class="lightbox-media">
+          <div class="image-zoom-container" id="image-zoom-container">
+            <img src="" alt="" id="lightbox-img" class="lightbox-img">
+          </div>
+
+          <!-- Zoom Toolbar -->
+          <div class="zoom-toolbar">
+            <button id="zoom-in" class="zoom-btn" title="Zoom In"><i class="fa-solid fa-plus"></i></button>
+            <button id="zoom-out" class="zoom-btn" title="Zoom Out"><i class="fa-solid fa-minus"></i></button>
+            <button id="zoom-reset" class="zoom-btn" title="Reset Scale"><i class="fa-solid fa-rotate-left"></i></button>
+            <span class="zoom-level-text" id="zoom-level">100%</span>
+          </div>
+        </div>
+
+        <!-- Artwork Story & Collector Details Panel -->
+        <div class="lightbox-details">
+          <div class="lightbox-header-group">
+            <span id="lightbox-category" class="artwork-category-tag">Category</span>
+            <h2 id="lightbox-title" class="artwork-lightbox-title">Artwork Title</h2>
+            <p id="lightbox-artist" class="artwork-lightbox-artist">By Ruinuo • 2026</p>
+          </div>
+
+          <!-- Story & Inspiration -->
+          <div class="artwork-story-block">
+            <h3><i class="fa-solid fa-book-open"></i> Story & Concept</h3>
+            <p id="lightbox-description">Artwork background story description goes here...</p>
+          </div>
+
+          <!-- Palette Color Swatch Visualizer -->
+          <div class="palette-block">
+            <h3><i class="fa-solid fa-palette"></i> Palette Breakdown</h3>
+            <div id="lightbox-palette" class="palette-swatches">
+              <!-- Swatches generated dynamically -->
+            </div>
+          </div>
+
+          <!-- Technical Specs & Authenticity -->
+          <div class="specs-block">
+            <h3><i class="fa-solid fa-circle-info"></i> Artwork Details</h3>
+            <ul class="specs-list">
+              <li><span>Medium:</span> <strong id="lightbox-medium">Oil on Canvas</strong></li>
+              <li><span>Dimensions:</span> <strong id="lightbox-dimensions">48" x 36" (122 x 91 cm)</strong></li>
+              <li><span>Status:</span> <strong id="lightbox-status" class="status-available">Original Available</strong></li>
+              <li><span>Certificate:</span> <strong>Included & Signed</strong></li>
+            </ul>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="lightbox-actions">
+            <button id="lightbox-fav-btn" class="btn btn-secondary">
+              <i class="fa-regular fa-heart"></i> Add to Favorites
+            </button>
+            <button id="lightbox-inquire-btn" class="btn btn-primary">
+              <i class="fa-solid fa-envelope"></i> Inquire / Acquire
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- App Script -->
+  <script src="app.js"></script>
+</body>
+</html>
