@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
       badge: 'Spotlight',
       story: 'An ethereal futuristic nebula swirling over a glowing neon metropolis, exploring the boundary between digital space and cosmic energy.',
       palette: ['#66fcf1', '#a855f7', '#1e1b4b', '#0f172a', '#38bdf8'],
-      image: 'assets/images/cyberpunk_nebula.jpg'
+      image: 'assets/images/cyberpunk_nebula_ai.png'
     },
     {
       id: 'golden_solitude',
